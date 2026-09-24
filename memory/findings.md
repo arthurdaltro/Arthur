@@ -115,3 +115,15 @@ Addiction services run a **parallel** funnel: Book Consultation → intake email
 - https://courses.betheltransformationcenter.com/courses/overcome-chaos
 - https://www.bethel.com/ministries/transformation-center
 - https://www.facebook.com/bethel.tc2/
+
+## 10. Proposed behavioral rules vs current site (as-is check, 2026-09-24)
+| # | Rule | Current state | Confidence |
+|---|---|---|---|
+| 1 | Fast track for some services | No — every service goes interest form → intake → manual match → booking link (addiction: consult booked after intake) | Indexed |
+| 2 | Who picks the minister | Staff "prayerfully" match; client *may request* a specific team member | Indexed |
+| 3 | Crisis gate | Unknown | UNVERIFIED |
+| 4 | Tone / price before payment | Faith-based tone yes; price $115 stated in FAQ; on `/start` unknown | Partial |
+| 5 | No diagnosis / no card storage | Clinical services exist (counseling, EMDR); addiction consult "auto-charged at appointment" ⇒ card on file somewhere | Partial |
+| 6 | Minors policy | Unknown | UNVERIFIED |
+| 7 | Multilingual UI | Services in 5+ languages; site UI appears English-only | Partial |
+| 8 | Consent / privacy notice | Presumably in intake paperwork; on `/start` unknown | UNVERIFIED |
