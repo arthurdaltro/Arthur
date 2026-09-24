@@ -121,9 +121,14 @@ Addiction services run a **parallel** funnel: Book Consultation → intake email
 |---|---|---|---|
 | 1 | Fast track for some services | No — every service goes interest form → intake → manual match → booking link (addiction: consult booked after intake) | Indexed |
 | 2 | Who picks the minister | Staff "prayerfully" match; client *may request* a specific team member | Indexed |
-| 3 | Crisis gate | Unknown | UNVERIFIED |
+| 3 | Crisis gate | Exists in **FAQ** only (988 call/text + 988lifeline.org/chat); not a gate on `/start` as far as indexed | Indexed |
 | 4 | Tone / price before payment | Faith-based tone yes; price $115 stated in FAQ; on `/start` unknown | Partial |
 | 5 | No diagnosis / no card storage | Clinical services exist (counseling, EMDR); addiction consult "auto-charged at appointment" ⇒ card on file somewhere | Partial |
-| 6 | Minors policy | Unknown | UNVERIFIED |
+| 6 | Minors policy | Services offered to minors and adults; specific rule unknown | Partial |
 | 7 | Multilingual UI | Services in 5+ languages; site UI appears English-only | Partial |
 | 8 | Consent / privacy notice | Presumably in intake paperwork; on `/start` unknown | UNVERIFIED |
+
+## 11. Current tech stack (indexed, 2026-09-24)
+- **SimplePractice** is their practice-management system: virtual sessions run on "Telehealth by SimplePractice"; site says they "updated their client portal system" and require new intake forms before booking ⇒ intake paperwork, client portal, booking link and card-on-file almost certainly live in SimplePractice (HIPAA-compliant).
+- Contact email: transformationcenter@bethel.com
+- **Implication for D-005:** Google Sheets / Cal.com / Stripe would duplicate SimplePractice and Sheets is not HIPAA-suitable for health intake. Consider a SimplePractice-aware handoff (our `/start` pre-qualifies + routes, then deep-links into SimplePractice client portal / booking). → raise with user before Blueprint approval.

@@ -24,3 +24,4 @@
 - User deferred live integrations (D-006). Build proceeds in mock mode; probes + "how to connect" SOP to be delivered for the integrator. Q2 closed.
 - Q3 answered: real minister names OK. Catalog default = `config/catalog.json` (D-007). Only 3 names recoverable via search; full roster blocked by egress.
 - Q4 answered: deliverables A+B+C+D; hybrid flow (option 3). Schema status/next_step updated (D-008).
+- User asked which Phase B items already exist today. New research: they run SimplePractice (telehealth + client portal); 988 in FAQ; minors served. Logged findings §10–11; flagged provider-choice conflict (Sheets not HIPAA; duplication with SimplePractice).
