@@ -17,3 +17,7 @@
 - User: portfolio project, intends to pitch to Bethel TC; must be integrated or left integration-ready.
 - North Star recorded in CLAUDE.md; decision D-004 (adapters + mock default) logged.
 - Next: Q2 Integrations.
+
+## 2026-09-24 — Blueprint Q2 (partial)
+- User: integrate every category for real. Pending: provider choice per category + credential readiness.
+- Providers chosen: Sheets, Resend, Cal.com, Stripe (test), Vercel (tentative). `.env.example` expanded. Pending: credential readiness.

@@ -19,3 +19,8 @@
 - **Context:** Q1 answer — portfolio project, may be sold to Bethel TC; must be integrated or ready for someone else to integrate. No access to their credentials.
 - **Decision:** Each external dependency (form storage/CRM, email, booking, payments) is a small adapter behind a fixed interface. Ship a `mock` adapter (writes JSON to `/.tmp/`) as default; real adapters are added per integration with credentials in `.env`.
 - **Reason:** Demo works end-to-end with zero credentials; the handoff to a buyer's developer is "implement one file + fill `.env`", which is the selling point.
+
+## D-005 — Provider selection (Q2)
+- Storage: **Google Sheets** (user choice) — legible to a non-technical ministry team.
+- Email: **Resend**. Booking: **Cal.com**. Payments: **Stripe test mode** (user had no preference; chosen for free test keys + hosted checkout). Hosting: Vercel (tentative).
+- Each sits behind its adapter; `ADAPTER_MODE=mock|live` switches globally.

@@ -10,7 +10,7 @@
 
 ## Phase B — Blueprint
 - [x] Q1 North Star (portfolio + sales pitch; integration-ready prototype)
-- [ ] Q2 Integrations + credentials status
+- [~] Q2 Integrations (providers chosen; credentials pending)
 - [ ] Q3 Source of Truth
 - [ ] Q4 Delivery Payload
 - [ ] Q5 Behavioral Rules

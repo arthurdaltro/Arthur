@@ -92,7 +92,14 @@ Provisional invariants (to be confirmed):
 ### Discovery answers
 - **Context (Q1, 2026-09-24):** portfolio piece, with intent to pitch/sell to Bethel TC. Must be either integrated or *integration-ready* for a third party to plug in.
 - **North Star:** A working, demo-ready prototype of the new `/start` that takes a client from first click to a validated, routed `RoutedIntake` payload in **one flow (<3 min, 1 form)**, where swapping the mock backend for real systems requires **only `.env` + one adapter file per integration** — no changes to logic or UI.
-- **Integrations:** _pending_
+- **Integrations (Q2):** all integrated for real; mock adapters still ship (D-004).
+  | Category | Provider | Credential status |
+  |---|---|---|
+  | Intake storage | Google Sheets (service account) | ⏳ pending |
+  | Email | Resend | ⏳ pending |
+  | Booking | Cal.com | ⏳ pending |
+  | Payments | Stripe **test mode** (user: no preference → default) | ⏳ pending |
+  | Hosting | Vercel (default, confirm in Phase T) | — |
 - **Source of Truth:** _pending_
 - **Delivery Payload:** _pending_
 - **Behavioral Rules:** _pending_
