@@ -83,8 +83,8 @@ Provisional invariants (to be confirmed):
 
 | Phase | Output | Status |
 |---|---|---|
-| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (1/5 answered) |
-| **L** Link | Probe scripts green for every integration | ⛔ Blocked on B |
+| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (2/5 answered) |
+| **L** Link | Probe scripts per integration (written, run by integrator) | ⏸ Deferred — mock mode |
 | **A** Architect | SOPs + tools + tests | ⛔ Blocked on B |
 | **S** Stylize | Restructured `/start` page + templates, user sign-off | ⛔ Blocked on B |
 | **T** Trigger | Deployment + triggers + maintenance log | ⛔ Blocked on B |
@@ -92,13 +92,13 @@ Provisional invariants (to be confirmed):
 ### Discovery answers
 - **Context (Q1, 2026-09-24):** portfolio piece, with intent to pitch/sell to Bethel TC. Must be either integrated or *integration-ready* for a third party to plug in.
 - **North Star:** A working, demo-ready prototype of the new `/start` that takes a client from first click to a validated, routed `RoutedIntake` payload in **one flow (<3 min, 1 form)**, where swapping the mock backend for real systems requires **only `.env` + one adapter file per integration** — no changes to logic or UI.
-- **Integrations (Q2):** all integrated for real; mock adapters still ship (D-004).
+- **Integrations (Q2):** providers chosen below. **Live connection DEFERRED by user** — build runs `ADAPTER_MODE=mock`; each live adapter is written to its provider's API contract and left ready to switch on with `.env` (D-006).
   | Category | Provider | Credential status |
   |---|---|---|
-  | Intake storage | Google Sheets (service account) | ⏳ pending |
-  | Email | Resend | ⏳ pending |
-  | Booking | Cal.com | ⏳ pending |
-  | Payments | Stripe **test mode** (user: no preference → default) | ⏳ pending |
+  | Intake storage | Google Sheets (service account) | ⏸ deferred (handoff) |
+  | Email | Resend | ⏸ deferred (handoff) |
+  | Booking | Cal.com | ⏸ deferred (handoff) |
+  | Payments | Stripe **test mode** (user: no preference → default) | ⏸ deferred (handoff) |
   | Hosting | Vercel (default, confirm in Phase T) | — |
 - **Source of Truth:** _pending_
 - **Delivery Payload:** _pending_

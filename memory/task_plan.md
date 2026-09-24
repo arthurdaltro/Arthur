@@ -10,7 +10,7 @@
 
 ## Phase B — Blueprint
 - [x] Q1 North Star (portfolio + sales pitch; integration-ready prototype)
-- [~] Q2 Integrations (providers chosen; credentials pending)
+- [x] Q2 Integrations (providers chosen; live connection deferred → handoff-ready, D-006)
 - [ ] Q3 Source of Truth
 - [ ] Q4 Delivery Payload
 - [ ] Q5 Behavioral Rules
@@ -18,8 +18,8 @@
 - [ ] Blueprint approved by user
 
 ## Phase L — Link
-- [ ] Probe script per integration in `/execution/probe_*.py`
-- [ ] All links green, logged in `progress.md`
+- [ ] Probe script per integration in `/execution/probe_*.py` (written, not run — D-006)
+- [ ] ~~All links green~~ → deferred to integrator; mock adapters green
 - [ ] Obtain live access to the site (egress allowlist) to verify `UNVERIFIED` findings
 
 ## Phase A — Architect

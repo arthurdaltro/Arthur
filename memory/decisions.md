@@ -24,3 +24,8 @@
 - Storage: **Google Sheets** (user choice) — legible to a non-technical ministry team.
 - Email: **Resend**. Booking: **Cal.com**. Payments: **Stripe test mode** (user had no preference; chosen for free test keys + hosted checkout). Hosting: Vercel (tentative).
 - Each sits behind its adapter; `ADAPTER_MODE=mock|live` switches globally.
+
+## D-006 — Defer live integrations; ship integration-ready
+- **Context:** User asked to skip credentials/connection now and leave it ready for someone else to connect.
+- **Decision:** Phase L runs against mock adapters only. For each provider we still write: the live adapter, a probe script (`execution/probe_<provider>.py`), and an SOP section "How to connect" (`architecture/integrations.md`). Live adapters are unverified until an integrator runs the probes.
+- **Reason:** Keeps the North Star (swap = `.env` + adapter) true, without blocking the build on credentials. Risk: unverified live code — mitigated by probes + clear `UNVERIFIED` labels.
