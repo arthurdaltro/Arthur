@@ -35,3 +35,8 @@
 - **Ministers:** user authorized real names. Rule: names + attributes copied only from the public `/team` page; unknown attributes = `null` → routing marks `needs_review`. No fabricated specialties/languages about real people.
 - **Labeling:** public demo carries a "concept prototype — not affiliated" notice to avoid presenting it as Bethel's official site.
 - **Blocker:** full roster needs live access to `/team` (egress). Until then, catalog ships with the 3 names found in search, attributes `null`.
+
+## D-008 — Deliverables A+B+C+D; hybrid post-submit flow
+- **Deliverables:** public `/start` demo (A), team dashboard (B), before/after pitch report (C), handoff codebase + guide (D).
+- **Flow:** option 3 — fast track (pay + book now) only when eligibility is fully deterministic from published catalog data; otherwise manual match (preserves Bethel's prayerful matching). D-003 now scoped to the manual lane.
+- **Open:** which services may fast-track; on fast track, does the client pick among eligible ministers or does Cal.com round-robin? → Q5.

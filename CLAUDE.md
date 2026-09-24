@@ -49,12 +49,12 @@ Derived from the observed funnel (see `memory/findings.md §6`). Must be confirm
 ```json
 {
   "submission_id": "uuid",
-  "status": "accepted | needs_review | rejected_invalid | crisis_redirect",
+  "status": "fast_track | manual_match | needs_review | rejected_invalid | crisis_redirect",
   "lane": "sessions | addiction | referral | training",
   "eligible_ministers": ["minister_id"],
   "price_usd": 115,
   "duration_min": 60,
-  "next_step": "intake_paperwork | consultation_booking | crisis_resources",
+  "next_step": "payment_and_booking | await_match | crisis_resources | fix_errors",
   "sla_business_days": 3,
   "notifications": [
     { "channel": "email", "to": "client | team", "template": "string" }
@@ -66,7 +66,7 @@ Derived from the observed funnel (see `memory/findings.md §6`). Must be confirm
 ## 3. Behavioral Rules — pending Q5
 Provisional invariants (to be confirmed):
 - Never guess business logic; unknown → `needs_review`, never a silent default.
-- Final minister match is human; automation only pre-filters (decision D-003).
+- Manual-match lane: final minister match is human; automation only pre-filters (D-003). Fast-track lane only when eligibility is fully deterministic (D-008).
 - Crisis indicators always short-circuit to crisis resources before any sales/booking content.
 - Prices, languages and services come from ONE config source, never hard-coded in pages.
 
@@ -84,7 +84,7 @@ Provisional invariants (to be confirmed):
 
 | Phase | Output | Status |
 |---|---|---|
-| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (3/5 answered) |
+| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (4/5 answered) |
 | **L** Link | Probe scripts per integration (written, run by integrator) | ⏸ Deferred — mock mode |
 | **A** Architect | SOPs + tools + tests | ⛔ Blocked on B |
 | **S** Stylize | Restructured `/start` page + templates, user sign-off | ⛔ Blocked on B |
@@ -105,7 +105,15 @@ Provisional invariants (to be confirmed):
   - Intake records → Google Sheets (live) / `.tmp/intakes/*.json` (mock).
   - Catalog (services, prices, durations, formats, languages, discounts, ministers) → `config/catalog.json`, versioned in repo (default applied; user did not pick — D-007). Pages and routing read ONLY from it.
   - Ministers: **real names allowed** (user), taken verbatim from the public `/team` page. Per-minister attributes (services, languages, formats) only as published there; anything not published = `null` + `needs_review`, never invented.
-- **Delivery Payload:** _pending_
+- **Delivery Payload (Q4):** all four deliverables —
+  - **A.** Live `/start` on a public URL (Vercel), end-to-end in mock mode.
+  - **B.** Team dashboard: incoming intakes + suggested routing.
+  - **C.** Before/after pitch report (current funnel vs new).
+  - **D.** Handoff-ready codebase + integration guide.
+- **Post-submit flow (Q4 = option 3, hybrid):**
+  - **Fast track** → client pays (Stripe) + books (Cal.com) immediately, when ALL hold: service is fast-trackable, and ≥1 minister in `catalog.json` has *published* service ∧ language ∧ format matching the request, and no crisis flag, and no preferred minister conflict.
+  - **Manual match** → confirmation screen with next steps + SLA (1–3 business days); team matches in dashboard (current "prayerful match" preserved).
+  - Rule precision (fast-trackable services, who picks the minister on fast track) — ⏳ confirm in Q5.
 - **Behavioral Rules:** _pending_
 
 ## 6. Triggers
