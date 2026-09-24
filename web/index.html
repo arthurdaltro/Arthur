@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start Here — Concept Prototype</title>
+  <meta name="description" content="Concept prototype of a one-flow intake for a faith-based healing center. Not affiliated with Bethel.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="banner" role="note" data-i18n="banner"></div>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><span data-i18n="brand"></span><small data-i18n="brand_sub"></small></div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-locale="en" aria-pressed="true">EN</button>
+        <button type="button" data-locale="es" aria-pressed="false">ES</button>
+      </div>
+    </header>
+
+    <div id="progress-wrap">
+      <div class="progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="step-label" id="step-label" aria-live="polite"></div>
+    </div>
+
+    <main id="main" tabindex="-1">
+      <!-- 1. Safety gate -->
+      <section class="card" data-step="safety">
+        <h1 data-i18n="safety_title"></h1>
+        <p class="lead" data-i18n="safety_body"></p>
+        <div class="stack">
+          <button class="btn primary" type="button" id="safe-no" data-i18n="safety_no"></button>
+          <button class="btn danger" type="button" id="safe-yes" data-i18n="safety_yes"></button>
+        </div>
+      </section>
+
+      <!-- Crisis -->
+      <section class="card crisis" data-step="crisis" hidden>
+        <h1 data-i18n="crisis_title"></h1>
+        <p class="lead" data-i18n="crisis_body"></p>
+        <ul>
+          <li><a href="tel:988" data-i18n="crisis_988"></a></li>
+          <li><a href="https://988lifeline.org/chat/" target="_blank" rel="noopener" data-i18n="crisis_chat"></a></li>
+          <li><a href="tel:911" data-i18n="crisis_911"></a></li>
+          <li><a href="https://findahelpline.com" target="_blank" rel="noopener" data-i18n="crisis_intl"></a></li>
+        </ul>
+        <button class="btn ghost" type="button" data-go="safety" data-i18n="crisis_back"></button>
+      </section>
+
+      <!-- 2. Who -->
+      <section class="card" data-step="who" hidden>
+        <h1 data-i18n="who_title"></h1>
+        <div class="options">
+          <button class="option" type="button" data-go="service"><strong data-i18n="who_session"></strong><span class="desc" data-i18n="who_session_d"></span></button>
+          <a class="option" href="https://www.betheltransformationcenter.com/client-referral-request" target="_blank" rel="noopener"><strong data-i18n="who_referral"></strong><span class="desc" data-i18n="who_referral_d"></span></a>
+          <a class="option" href="https://www.betheltransformationcenter.com/internship" target="_blank" rel="noopener"><strong data-i18n="who_training"></strong><span class="desc" data-i18n="who_training_d"></span></a>
+        </div>
+        <div class="actions"><button class="btn ghost" type="button" data-go="safety" data-i18n="back"></button></div>
+      </section>
+
+      <!-- 3. Service -->
+      <section class="card" data-step="service" hidden>
+        <h1 data-i18n="service_title"></h1>
+        <p class="lead" data-i18n="service_hint"></p>
+        <div class="options grid" id="services" role="radiogroup"></div>
+        <div class="actions">
+          <button class="btn ghost" type="button" data-go="who" data-i18n="back"></button>
+          <button class="btn primary" type="button" id="service-next" data-i18n="next" disabled></button>
+        </div>
+      </section>
+
+      <!-- 4. Fit -->
+      <section class="card" data-step="fit" hidden>
+        <h1 data-i18n="fit_title"></h1>
+        <div class="summary" id="fit-summary"></div>
+        <fieldset>
+          <legend data-i18n="format"></legend>
+          <div class="pills">
+            <label class="option"><input type="radio" name="format" value="virtual" checked><span data-i18n="virtual"></span></label>
+            <label class="option"><input type="radio" name="format" value="in_person"><span data-i18n="in_person"></span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label class="f" for="language" data-i18n="language"></label>
+          <select id="language"></select>
+        </div>
+        <fieldset>
+          <legend data-i18n="age"></legend>
+          <div class="pills">
+            <label class="option"><input type="radio" name="age_group" value="adult" checked><span data-i18n="adult"></span></label>
+            <label class="option"><input type="radio" name="age_group" value="minor"><span data-i18n="minor"></span></label>
+          </div>
+          <p class="note" id="minor-note" data-i18n="minor_note" hidden style="margin-top:.75rem"></p>
+        </fieldset>
+        <div class="row">
+          <div class="field">
+            <label class="f" for="discount" data-i18n="discount"></label>
+            <select id="discount"></select>
+          </div>
+          <div class="field">
+            <label class="f" for="minister" data-i18n="minister"></label>
+            <select id="minister"></select>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn ghost" type="button" data-go="service" data-i18n="back"></button>
+          <button class="btn primary" type="button" data-go="contact" data-i18n="next"></button>
+        </div>
+      </section>
+
+      <!-- 5. Contact -->
+      <section class="card" data-step="contact" hidden>
+        <h1 data-i18n="contact_title"></h1>
+        <div class="alert" id="form-alert" role="alert" data-i18n="errors_title" hidden></div>
+        <form id="contact-form" novalidate>
+          <div class="row">
+            <div class="field" data-field="contact.first_name"><label class="f" for="first_name" data-i18n="first_name"></label><input type="text" id="first_name" autocomplete="given-name" required><div class="msg"></div></div>
+            <div class="field" data-field="contact.last_name"><label class="f" for="last_name" data-i18n="last_name"></label><input type="text" id="last_name" autocomplete="family-name" required><div class="msg"></div></div>
+          </div>
+          <div class="row">
+            <div class="field" data-field="contact.email"><label class="f" for="email" data-i18n="email"></label><input type="email" id="email" autocomplete="email" required><div class="msg"></div></div>
+            <div class="field" data-field="contact.phone"><label class="f" for="phone" data-i18n="phone"></label><input type="tel" id="phone" autocomplete="tel"><div class="msg"></div></div>
+          </div>
+          <div class="row">
+            <div class="field" data-field="contact.country"><label class="f" for="country" data-i18n="country"></label><input type="text" id="country" maxlength="2" autocomplete="country" required><div class="msg"></div></div>
+            <div class="field" data-field="contact.timezone"><label class="f" for="timezone" data-i18n="timezone"></label><input type="text" id="timezone" required><div class="msg"></div></div>
+          </div>
+          <p class="note" data-i18n="privacy"></p>
+          <label class="check" data-field="consents.terms"><input type="checkbox" id="terms"><span data-i18n="consent_terms"></span></label>
+          <label class="check"><input type="checkbox" id="comms"><span data-i18n="consent_comms"></span></label>
+          <div class="actions">
+            <button class="btn ghost" type="button" data-go="fit" data-i18n="back"></button>
+            <button class="btn primary" type="submit" id="submit" data-i18n="submit"></button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Result -->
+      <section class="card result" data-step="result" hidden>
+        <div class="status-icon" aria-hidden="true" id="r-icon"></div>
+        <h1 id="r-title"></h1>
+        <p class="lead" id="r-body"></p>
+        <dl class="facts" id="r-facts"></dl>
+        <p class="note" id="r-why" hidden></p>
+        <h2 data-i18n="result_next"></h2>
+        <ol class="next" id="r-next"></ol>
+        <p class="note warn" id="r-placeholder" data-i18n="placeholder_note" hidden></p>
+        <div class="actions">
+          <button class="btn ghost" type="button" id="restart" data-i18n="result_again"></button>
+          <a class="btn primary" id="r-cta" target="_blank" rel="noopener" hidden data-i18n="result_fast_cta"></a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

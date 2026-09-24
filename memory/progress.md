@@ -35,3 +35,10 @@
 - Error: `node --test tests/` → MODULE_NOT_FOUND (Node 22 treats a dir arg as a module). Fix: glob `tests/*.test.mjs`.
 - Tests: `npm test` → 17/17 pass (routing table rows 1–9, determinism, sanitize, mock e2e, live-mode guard).
 - Phase L (mock): mock adapters green via e2e test. Live probes written, NOT run (D-006, egress blocked).
+
+## 2026-09-24 — Phase S
+- Built web/index.html (+app.js, i18n.js EN/ES, styles.css light/dark), dashboard.html, report.html.
+- E2E `npm run e2e` (Playwright): safety, crisis, validation errors, fast track, manual, ES mobile, dashboard, report → GREEN. 10 screenshots in docs/screenshots/.
+- Issue: first result screenshots captured mid fade-in animation. Fix: E2E context uses reducedMotion 'reduce' (also exercises a11y path).
+- Issue: dashboard reason column clipped → human-readable, wrapping.
+- Awaiting user sign-off → Phase T (Vercel).

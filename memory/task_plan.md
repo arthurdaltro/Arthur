@@ -1,6 +1,6 @@
 # Task Plan — Bethel Transformation Center `/start` Restructure
 
-**Status:** 🟢 Blueprint approved — building Phase A/S.
+**Status:** 🟡 Phase S built — awaiting sign-off.
 
 ## Protocol 0 — Initialization
 - [x] Create `/memory/` (task_plan, findings, progress, decisions)
@@ -23,15 +23,15 @@
 - [ ] Obtain live access to the site (egress allowlist) to verify `UNVERIFIED` findings
 
 ## Phase A — Architect
-- [ ] SOP: `architecture/intake_routing.md`
-- [ ] SOP: `architecture/start_page_content.md`
-- [ ] Tools: validate_submission, route_submission, deliver_payload
-- [ ] Unit tests per tool
+- [x] SOP: `architecture/intake_routing.md` (+ integrations.md)
+- [x] SOP: `architecture/start_page_content.md`
+- [x] Tools: validate, route, intake pipeline, adapters, probes
+- [x] Unit tests per tool (17) + E2E
 
 ## Phase S — Stylize
-- [ ] Restructured `/start` page (mobile-first, accessible, i18n-ready)
-- [ ] Email/notification templates
-- [ ] Screenshots + verify command
+- [x] Restructured `/start` page (mobile-first, accessible, EN/ES)
+- [x] Email/notification templates (execution/lib/templates.mjs)
+- [x] Screenshots + verify command (npm run e2e)
 - [ ] User sign-off
 
 ## Phase T — Trigger

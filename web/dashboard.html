@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intake Dashboard — Concept Prototype</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="banner" role="note">Concept prototype — not affiliated with or endorsed by Bethel. Test data only.</div>
+  <div class="wrap wide">
+    <header class="top">
+      <div class="brand">Transformation Center<small>Team dashboard · intakes</small></div>
+      <a class="btn ghost" href="/">Open /start</a>
+    </header>
+    <div class="kpis" id="kpis"></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Received</th><th>Status</th><th>Service</th><th>Format · Lang</th><th>Client</th><th>Suggested minister(s)</th><th>Reason</th><th>SLA</th></tr></thead>
+        <tbody id="rows"><tr><td colspan="8" class="empty">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="lead" style="margin-top:1rem;font-size:.85rem" id="mode"></p>
+  </div>
+  <script type="module">
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+    const [catalog, data] = await Promise.all([
+      fetch('/api/catalog').then((r) => r.json()),
+      fetch('/api/intakes' + location.search).then((r) => r.json()),
+    ]);
+    const records = data.records ?? [];
+    const count = (s) => records.filter((r) => r.intake.status === s).length;
+    document.getElementById('kpis').innerHTML = [
+      ['Total intakes', records.length],
+      ['Fast track (booked directly)', count('fast_track')],
+      ['Awaiting prayerful match', count('manual_match')],
+      ['Needs review', count('needs_review')],
+    ].map(([l, v]) => `<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join('');
+
+    const minister = (id) => catalog.ministers[id]?.name ?? id;
+    document.getElementById('rows').innerHTML = records.length
+      ? records.map(({ intake: i, submission: s }) => `<tr>
+          <td>${esc(new Date(i.submitted_at).toLocaleString())}</td>
+          <td><span class="st ${i.status}">${esc(i.status.replace('_', ' '))}</span></td>
+          <td>${esc(catalog.services[s.service]?.label)}${i.price_usd != null ? ` · $${i.price_usd}` : ''}</td>
+          <td>${esc(s.format.replace('_', ' '))} · ${esc(s.language)}${s.age_group === 'minor' ? ' · <b>minor</b>' : ''}</td>
+          <td>${esc(s.contact.first_name)} ${esc(s.contact.last_name)}<br><small>${esc(s.contact.email)}</small></td>
+          <td>${i.eligible_ministers.length ? esc(i.eligible_ministers.map(minister).join(', ')) : '<i>team decides</i>'}</td>
+          <td style="white-space:normal;min-width:180px">${esc(i.reasons.join(', ').replaceAll('_', ' '))}</td>
+          <td>${i.sla_business_days ? `${i.sla_business_days} business days` : '—'}</td>
+        </tr>`).join('')
+      : '<tr><td colspan="8" class="empty">No intakes yet — submit one from /start.</td></tr>';
+    document.getElementById('mode').textContent =
+      `Adapter mode: ${data.mode ?? 'unknown'}. In live mode, the team works from the practice system; this view is the mock preview.`;
+  </script>
+</body>
+</html>

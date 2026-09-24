@@ -2,7 +2,7 @@
 
 **Project:** Restructure of the Bethel Transformation Center client entry funnel (`/start`)
 **Operator:** System Pilot — B.L.A.S.T. protocol + A.N.T. 3-layer build
-**State:** 🟢 Blueprint APPROVED (2026-09-24). Phases L(mock) → A → S in progress.
+**State:** 🟡 Phase S built — awaiting user sign-off before Phase T (deploy).
 
 ---
 
@@ -94,9 +94,9 @@ Referrers and training/course visitors are routed by links on the first screen a
 | Phase | Output | Status |
 |---|---|---|
 | **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ✅ Approved 2026-09-24 |
-| **L** Link | Probe scripts per integration (written, run by integrator) | ⏸ Deferred — mock mode |
-| **A** Architect | SOPs + tools + tests | 🔨 In progress |
-| **S** Stylize | Restructured `/start` page + dashboard + report, user sign-off | 🔨 In progress |
+| **L** Link | Probes written (`npm run probe`); mock adapters green | ⏸ Live deferred (D-006) |
+| **A** Architect | 3 SOPs, validate/route/intake tools, adapters, 17 tests | ✅ |
+| **S** Stylize | `/start` (EN/ES), dashboard, report; E2E + screenshots in `docs/screenshots/` | ✅ built · ⏳ sign-off |
 | **T** Trigger | Deployment + triggers + maintenance log | ⏳ After sign-off |
 
 ### Discovery answers
@@ -126,8 +126,9 @@ Referrers and training/course visitors are routed by links on the first screen a
 
 ## 6. Triggers
 - Manual/dev: `npm start` → http://localhost:3000 (`/`, `/dashboard.html`, `/report.html`).
-- Tests: `npm test`.
+- Tests: `npm test` (unit) · `npm run e2e` (browser + screenshots, server running) · `npm run probe` (live links).
 - Production trigger: form POST `/api/submit` (Phase T).
 
 ## 7. Maintenance Log
+- 2026-09-24 — Phase A/S built. 17 unit + 1 E2E green. Live adapters unverified.
 - 2026-09-24 — Constitution initialized. Target site egress-blocked in this container; research from search indexes.

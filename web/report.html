@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start Funnel: Before &amp; After</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+    .flow { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .flow li { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: .65rem .9rem; position: relative; }
+    .flow li.wait { border-style: dashed; color: var(--muted); }
+    .flow li.new { border-color: var(--ok); background: var(--ok-soft); }
+    .tag { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+    table.cmp td:first-child { white-space: normal; }
+    table.cmp td { white-space: normal; }
+    section { margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="banner" role="note">Concept prototype — not affiliated with or endorsed by Bethel. Findings from public, search-indexed pages (Sept 2026).</div>
+  <div class="wrap wide">
+    <header class="top">
+      <div class="brand">Transformation Center<small>/start redesign · before &amp; after</small></div>
+      <a class="btn primary" href="/">Try the new /start</a>
+    </header>
+
+    <section>
+      <h1>One form. A clear next step. Same prayerful matching.</h1>
+      <p class="lead">The new /start sits in front of the practice system you already use (SimplePractice). It adds a safety check, clear prices, service and language choice, and lets simple requests book right away. Everything else still goes to your team for a personal, prayerful match.</p>
+    </section>
+
+    <section class="cols">
+      <div class="card">
+        <span class="tag">Today</span>
+        <h2>4 hand-offs before a booking</h2>
+        <ol class="flow">
+          <li>Interest form (contact details only)</li>
+          <li class="wait">Wait for email #1 with the intake link</li>
+          <li>Intake paperwork in the client portal</li>
+          <li class="wait">Wait 1–3 business days for matching</li>
+          <li class="wait">Wait for email #2 with the booking link</li>
+          <li>Book an appointment</li>
+        </ol>
+      </div>
+      <div class="card">
+        <span class="tag">New /start</span>
+        <h2>1 form, then book now or a personal match</h2>
+        <ol class="flow">
+          <li class="new">Safety check first (988 / 911 if needed)</li>
+          <li class="new">Choose a service, with price and format visible</li>
+          <li class="new">Language, age, discount, optional preferred minister</li>
+          <li>Contact details and consent</li>
+          <li class="new"><b>Simple fit →</b> book right away in the practice system</li>
+          <li><b>Everything else →</b> prayerful match, with a clear timeline (3 business days)</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2>What changes</h2>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead><tr><th>Area</th><th>Today</th><th>New /start</th></tr></thead>
+          <tbody>
+            <tr><td>Entry points</td><td>/start, /book and the addiction "Book Consultation" follow different processes</td><td>One entry point; referrers and training visitors are sent to their pages on the first screen</td></tr>
+            <tr><td>Crisis safety</td><td>988 information lives in the FAQ</td><td>Mandatory safety check before anything else; nothing stored on the crisis path</td></tr>
+            <tr><td>Prices and languages</td><td>Spread across the FAQ and service pages, and some lists disagree</td><td>One catalog file feeds every page and the routing rules</td></tr>
+            <tr><td>Time to booking</td><td>Every client waits for manual matching</td><td>Sozo, Art Sozo, Counseling and Coaching can book right away when a minister's published language and format match</td></tr>
+            <tr><td>Matching</td><td>Prayerful match by the team</td><td>Unchanged for clinical, sensitive and minor requests; the dashboard suggests eligible ministers</td></tr>
+            <tr><td>Languages of the site</td><td>English only (services offered in 5+ languages)</td><td>English and Spanish, ready for Mandarin/Taiwanese, Turkish and Danish</td></tr>
+            <tr><td>Status visibility</td><td>"1–3 business days", with no confirmation of what happens next</td><td>A confirmation screen and email with the next steps and timeline</td></tr>
+            <tr><td>Systems</td><td>SimplePractice</td><td>Still SimplePractice. /start hands off with a link; payments and paperwork stay there</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="cols">
+      <div class="card">
+        <h2>Built-in rules</h2>
+        <ul>
+          <li>Never diagnose or promise outcomes</li>
+          <li>Only asks what routing needs; no medical details</li>
+          <li>Anything the system can't decide goes to the team, never a silent default</li>
+          <li>Same input gives the same routing (17 automated tests)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>To connect it for real</h2>
+        <ul>
+          <li>Paste the SimplePractice booking-widget URL into <code>.env</code></li>
+          <li>Fill in each minister's languages, formats and services in <code>catalog.json</code></li>
+          <li>Optional: add Sheets and Resend keys for an intake log and emails</li>
+          <li>Verify prices and languages against the live pages</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
