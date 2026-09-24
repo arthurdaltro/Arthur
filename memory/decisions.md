@@ -29,3 +29,9 @@
 - **Context:** User asked to skip credentials/connection now and leave it ready for someone else to connect.
 - **Decision:** Phase L runs against mock adapters only. For each provider we still write: the live adapter, a probe script (`execution/probe_<provider>.py`), and an SOP section "How to connect" (`architecture/integrations.md`). Live adapters are unverified until an integrator runs the probes.
 - **Reason:** Keeps the North Star (swap = `.env` + adapter) true, without blocking the build on credentials. Risk: unverified live code — mitigated by probes + clear `UNVERIFIED` labels.
+
+## D-007 — Catalog as versioned JSON; real minister names, no invented attributes
+- **Catalog:** `config/catalog.json` in repo is the single source of truth (user skipped the option → recommended default). Sheets "Catalog" tab can be added later as an adapter without changing consumers.
+- **Ministers:** user authorized real names. Rule: names + attributes copied only from the public `/team` page; unknown attributes = `null` → routing marks `needs_review`. No fabricated specialties/languages about real people.
+- **Labeling:** public demo carries a "concept prototype — not affiliated" notice to avoid presenting it as Bethel's official site.
+- **Blocker:** full roster needs live access to `/team` (egress). Until then, catalog ships with the 3 names found in search, attributes `null`.

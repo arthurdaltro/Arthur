@@ -22,3 +22,4 @@
 - User: integrate every category for real. Pending: provider choice per category + credential readiness.
 - Providers chosen: Sheets, Resend, Cal.com, Stripe (test), Vercel (tentative). `.env.example` expanded. Pending: credential readiness.
 - User deferred live integrations (D-006). Build proceeds in mock mode; probes + "how to connect" SOP to be delivered for the integrator. Q2 closed.
+- Q3 answered: real minister names OK. Catalog default = `config/catalog.json` (D-007). Only 3 names recoverable via search; full roster blocked by egress.

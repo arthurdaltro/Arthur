@@ -72,7 +72,8 @@ Provisional invariants (to be confirmed):
 
 ## 4. Architectural Invariants
 - Every external system sits behind an adapter interface; the default adapter is a **mock** that writes to `/.tmp/` (D-004).
-- No client-real data in the repo; demo data is synthetic.
+- No client-real data in the repo; demo *client* submissions are synthetic.
+- Every deployed demo shows a visible "Concept prototype — not affiliated with or endorsed by Bethel" label until Bethel adopts it.
 - Tools in `/execution/` are deterministic and individually testable.
 - Credentials only in `.env`.
 - All intermediate files in `/.tmp/`.
@@ -83,7 +84,7 @@ Provisional invariants (to be confirmed):
 
 | Phase | Output | Status |
 |---|---|---|
-| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (2/5 answered) |
+| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (3/5 answered) |
 | **L** Link | Probe scripts per integration (written, run by integrator) | ⏸ Deferred — mock mode |
 | **A** Architect | SOPs + tools + tests | ⛔ Blocked on B |
 | **S** Stylize | Restructured `/start` page + templates, user sign-off | ⛔ Blocked on B |
@@ -100,7 +101,10 @@ Provisional invariants (to be confirmed):
   | Booking | Cal.com | ⏸ deferred (handoff) |
   | Payments | Stripe **test mode** (user: no preference → default) | ⏸ deferred (handoff) |
   | Hosting | Vercel (default, confirm in Phase T) | — |
-- **Source of Truth:** _pending_
+- **Source of Truth (Q3):**
+  - Intake records → Google Sheets (live) / `.tmp/intakes/*.json` (mock).
+  - Catalog (services, prices, durations, formats, languages, discounts, ministers) → `config/catalog.json`, versioned in repo (default applied; user did not pick — D-007). Pages and routing read ONLY from it.
+  - Ministers: **real names allowed** (user), taken verbatim from the public `/team` page. Per-minister attributes (services, languages, formats) only as published there; anything not published = `null` + `needs_review`, never invented.
 - **Delivery Payload:** _pending_
 - **Behavioral Rules:** _pending_
 

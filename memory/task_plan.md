@@ -11,7 +11,7 @@
 ## Phase B — Blueprint
 - [x] Q1 North Star (portfolio + sales pitch; integration-ready prototype)
 - [x] Q2 Integrations (providers chosen; live connection deferred → handoff-ready, D-006)
-- [ ] Q3 Source of Truth
+- [x] Q3 Source of Truth (Sheets for intakes; config/catalog.json for catalog; real names, D-007)
 - [ ] Q4 Delivery Payload
 - [ ] Q5 Behavioral Rules
 - [ ] Confirm Input/Output JSON schema in `CLAUDE.md` (currently DRAFT)

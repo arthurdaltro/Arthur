@@ -24,7 +24,7 @@
 | `/counseling` | Counseling |
 | `/addiction-services` | Addiction program (separate funnel: "Book Consultation") |
 | `/faq` | FAQs |
-| `/team` | Our Team |
+| `/team` | Our Team — ministers grouped by category, e.g. `/ministers/category/Counselor` (collection-style CMS) |
 | `/contact` | Contact Us |
 | `/internship` | Sozo Internship |
 | `/ecourse` | E-Courses (links out to courses subdomain) |
@@ -93,7 +93,13 @@ Addiction services run a **parallel** funnel: Book Consultation → intake email
 - One pricing/language table (single source of truth) reused by every page.
 - Separate lanes: "I want a session" / "I'm referring someone" / "Training & courses".
 
+## 8b. Team (partial, from search snippets — `UNVERIFIED`)
+- Names surfaced: Ari Isaoglu, Chrystal Rodriguez, Cyndi Barber (Sozo minister & pastoral counselor, 20+ yrs).
+- Full roster + per-minister languages/services require live access to `/team` (egress-blocked).
+
 ## 9. Sources
+- https://www.betheltransformationcenter.com/ministers/category/Counselor
+- https://www.linkedin.com/in/tcbethel/
 - https://www.betheltransformationcenter.com/start
 - https://www.betheltransformationcenter.com/
 - https://www.betheltransformationcenter.com/book
