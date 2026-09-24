@@ -1,0 +1,149 @@
+{
+  "version": "2026-09-24",
+  "sources": "memory/findings.md §3-§5, §8b (search-indexed, UNVERIFIED until checked against the live site)",
+  "sla_business_days": 3,
+  "price_note": "Published: most sessions $115; Art Sozo $150; addiction consultation $30.",
+  "handoff": {
+    "provider": "simplepractice",
+    "booking_url": "https://example.clientsecure.me",
+    "booking_url_is_placeholder": true
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "tr": "Türkçe",
+    "zh-TW": "中文（台灣）",
+    "da": "Dansk"
+  },
+  "discount_groups": {
+    "none": { "label": "None", "note": null },
+    "bethel_staff": { "label": "Current Bethel staff", "note": "Staff discount confirmed by our team at intake." },
+    "bethel_student": { "label": "Current Bethel student", "note": "Student discount confirmed by our team at intake." }
+  },
+  "services": {
+    "sozo": {
+      "label": "Sozo",
+      "summary": "A gentle inner-healing and deliverance ministry session to help you connect with the Father, Son and Holy Spirit.",
+      "fast_track": true,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en", "es", "tr", "zh-TW", "da"]
+    },
+    "art_sozo": {
+      "label": "Art Sozo",
+      "summary": "A Sozo session that uses creative expression alongside prayer.",
+      "fast_track": true,
+      "lane": "sessions",
+      "price_usd": 150,
+      "duration_min": 150,
+      "formats": null,
+      "languages": ["en"]
+    },
+    "counseling": {
+      "label": "Counseling",
+      "summary": "Faith-based counseling with a member of our counseling team.",
+      "fast_track": true,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en", "es", "zh-TW", "da"]
+    },
+    "coaching": {
+      "label": "Coaching",
+      "summary": "Forward-focused coaching for growth, calling and next steps.",
+      "fast_track": true,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en"]
+    },
+    "deliverance": {
+      "label": "Deliverance",
+      "summary": "Prayer ministry for freedom, with a team member matched to you.",
+      "fast_track": false,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en"]
+    },
+    "emdr": {
+      "label": "EMDR",
+      "summary": "A structured therapy approach for processing difficult memories.",
+      "fast_track": false,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en"]
+    },
+    "brainspotting": {
+      "label": "Brainspotting",
+      "summary": "A focused therapy approach for processing trauma and stuck places.",
+      "fast_track": false,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en"]
+    },
+    "trauma": {
+      "label": "Trauma therapy",
+      "summary": "Trauma-informed care with a therapist matched to your story.",
+      "fast_track": false,
+      "lane": "sessions",
+      "price_usd": 115,
+      "duration_min": null,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en"]
+    },
+    "addiction": {
+      "label": "Addiction services",
+      "summary": "Starts with a 30-minute consultation to find the right path together.",
+      "fast_track": false,
+      "lane": "addiction",
+      "price_usd": 30,
+      "duration_min": 30,
+      "formats": ["in_person", "virtual"],
+      "languages": ["en"]
+    }
+  },
+  "ministers": {
+    "cyndi_barber": {
+      "name": "Cyndi Barber",
+      "role": "Sozo minister & pastoral counselor (20+ years)",
+      "demo": false,
+      "services": null,
+      "languages": null,
+      "formats": null
+    },
+    "ari_isaoglu": {
+      "name": "Ari Isaoglu",
+      "role": "Team member",
+      "demo": false,
+      "services": null,
+      "languages": null,
+      "formats": null
+    },
+    "chrystal_rodriguez": {
+      "name": "Chrystal Rodriguez",
+      "role": "Team member",
+      "demo": false,
+      "services": null,
+      "languages": null,
+      "formats": null
+    },
+    "demo_placeholder": {
+      "name": "Demo minister (placeholder)",
+      "role": "Fictional — shows the fast track. Remove before production (D-011).",
+      "demo": true,
+      "services": ["sozo", "art_sozo", "counseling", "coaching"],
+      "languages": ["en", "es"],
+      "formats": ["in_person", "virtual"]
+    }
+  }
+}

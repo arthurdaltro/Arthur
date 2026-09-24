@@ -1,6 +1,6 @@
 # Task Plan — Bethel Transformation Center `/start` Restructure
 
-**Status:** 🔴 HALTED at Protocol 0 / Phase B — awaiting Discovery answers. No logic in `/execution/` until Blueprint is approved.
+**Status:** 🟢 Blueprint approved — building Phase A/S.
 
 ## Protocol 0 — Initialization
 - [x] Create `/memory/` (task_plan, findings, progress, decisions)
@@ -13,9 +13,9 @@
 - [x] Q2 Integrations (providers chosen; live connection deferred → handoff-ready, D-006)
 - [x] Q3 Source of Truth (Sheets for intakes; config/catalog.json for catalog; real names, D-007)
 - [x] Q4 Delivery Payload (A+B+C+D; hybrid fast-track/manual flow, D-008)
-- [ ] Q5 Behavioral Rules
-- [ ] Confirm Input/Output JSON schema in `CLAUDE.md` (currently DRAFT)
-- [ ] Blueprint approved by user
+- [x] Q5 Behavioral Rules (all 8 accepted)
+- [x] Input/Output JSON schema confirmed
+- [x] Blueprint approved by user (2026-09-24)
 
 ## Phase L — Link
 - [ ] Probe script per integration in `/execution/probe_*.py` (written, not run — D-006)

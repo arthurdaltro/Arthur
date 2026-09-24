@@ -25,3 +25,13 @@
 - Q3 answered: real minister names OK. Catalog default = `config/catalog.json` (D-007). Only 3 names recoverable via search; full roster blocked by egress.
 - Q4 answered: deliverables A+B+C+D; hybrid flow (option 3). Schema status/next_step updated (D-008).
 - User asked which Phase B items already exist today. New research: they run SimplePractice (telehealth + client portal); 988 in FAQ; minors served. Logged findings §10–11; flagged provider-choice conflict (Sheets not HIPAA; duplication with SimplePractice).
+
+## 2026-09-24 — Blueprint approved
+- Q2 revised to "front of SimplePractice" (D-009); Q5 all accepted (D-010). Schema confirmed in CLAUDE.md. Starting Phase A/S build.
+
+## 2026-09-24 — Phase A build
+- SOPs written first: architecture/intake_routing.md, integrations.md, start_page_content.md.
+- Catalog `config/catalog.json`; tools validate/route/intake; adapters mock (storage, email) + live (Sheets, Resend); probes handoff/sheets/resend; zero-dep server.
+- Error: `node --test tests/` → MODULE_NOT_FOUND (Node 22 treats a dir arg as a module). Fix: glob `tests/*.test.mjs`.
+- Tests: `npm test` → 17/17 pass (routing table rows 1–9, determinism, sanitize, mock e2e, live-mode guard).
+- Phase L (mock): mock adapters green via e2e test. Live probes written, NOT run (D-006, egress blocked).

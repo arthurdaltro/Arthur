@@ -40,3 +40,15 @@
 - **Deliverables:** public `/start` demo (A), team dashboard (B), before/after pitch report (C), handoff codebase + guide (D).
 - **Flow:** option 3 — fast track (pay + book now) only when eligibility is fully deterministic from published catalog data; otherwise manual match (preserves Bethel's prayerful matching). D-003 now scoped to the manual lane.
 - **Open:** which services may fast-track; on fast track, does the client pick among eligible ministers or does Cal.com round-robin? → Q5.
+
+## D-009 — Front of SimplePractice (Q2 revised)
+- **Context:** Findings §11 — Bethel TC runs SimplePractice (telehealth, client portal, card on file, HIPAA).
+- **Decision:** `/start` qualifies + routes, then hands off to SimplePractice (fast track: booking link; manual: team matches, then SP portal as today). Sheets/Resend/Cal.com remain alternative adapters. Stripe needs no adapter: SimplePractice (or Cal.com's Stripe app) charges.
+- **Reason:** Sell "better conversion, no system change"; avoid putting PHI in Sheets. SimplePractice has no public write API → handoff is a link, not an API call (`SIMPLEPRACTICE_BOOKING_URL`).
+
+## D-010 — Blueprint approved; Q5 defaults accepted
+- User accepted all 8 behavioral rules. Schema finalized (removed `audience`; added `age_group`, `ui_locale`, `reasons`, `handoff_url`).
+
+## D-011 — One fictional placeholder minister for the demo
+- **Context:** Real minister attributes (languages/formats per person) are not published in reachable data, so under D-007 no real minister is fast-track-eligible → the fast track could never be demonstrated.
+- **Decision:** Add one clearly fictional `demo_placeholder` minister (`"demo": true`, labelled "Demo minister — placeholder" in the UI) with attributes, so the fast-track lane is demonstrable. Real names keep `null` attributes. Remove before production.
