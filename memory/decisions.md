@@ -14,3 +14,8 @@
 - **Status:** PROPOSED (pending Q5 Behavioral Rules)
 - **Decision:** Deterministic routing only *pre-filters* eligible ministers (service × language × format); the final match remains a human decision.
 - **Reason:** Current process is explicitly "prayerful matching" — automating the final choice would change business logic.
+
+## D-004 — Integration-ready via adapters, mock by default
+- **Context:** Q1 answer — portfolio project, may be sold to Bethel TC; must be integrated or ready for someone else to integrate. No access to their credentials.
+- **Decision:** Each external dependency (form storage/CRM, email, booking, payments) is a small adapter behind a fixed interface. Ship a `mock` adapter (writes JSON to `/.tmp/`) as default; real adapters are added per integration with credentials in `.env`.
+- **Reason:** Demo works end-to-end with zero credentials; the handoff to a buyer's developer is "implement one file + fill `.env`", which is the selling point.

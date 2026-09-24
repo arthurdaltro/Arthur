@@ -12,3 +12,8 @@
 
 ## Tests run
 - None yet (no logic permitted before Blueprint approval).
+
+## 2026-09-24 — Blueprint Q1 answered
+- User: portfolio project, intends to pitch to Bethel TC; must be integrated or left integration-ready.
+- North Star recorded in CLAUDE.md; decision D-004 (adapters + mock default) logged.
+- Next: Q2 Integrations.

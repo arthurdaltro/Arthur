@@ -9,7 +9,7 @@
 - [x] Deep-dive research logged in `findings.md`
 
 ## Phase B — Blueprint
-- [ ] Q1 North Star
+- [x] Q1 North Star (portfolio + sales pitch; integration-ready prototype)
 - [ ] Q2 Integrations + credentials status
 - [ ] Q3 Source of Truth
 - [ ] Q4 Delivery Payload

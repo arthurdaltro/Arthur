@@ -71,6 +71,8 @@ Provisional invariants (to be confirmed):
 - Prices, languages and services come from ONE config source, never hard-coded in pages.
 
 ## 4. Architectural Invariants
+- Every external system sits behind an adapter interface; the default adapter is a **mock** that writes to `/.tmp/` (D-004).
+- No client-real data in the repo; demo data is synthetic.
 - Tools in `/execution/` are deterministic and individually testable.
 - Credentials only in `.env`.
 - All intermediate files in `/.tmp/`.
@@ -81,14 +83,15 @@ Provisional invariants (to be confirmed):
 
 | Phase | Output | Status |
 |---|---|---|
-| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (0/5 answered) |
+| **B** Blueprint | North Star, integrations, source of truth, payload, rules, confirmed schema | ⏳ In discovery (1/5 answered) |
 | **L** Link | Probe scripts green for every integration | ⛔ Blocked on B |
 | **A** Architect | SOPs + tools + tests | ⛔ Blocked on B |
 | **S** Stylize | Restructured `/start` page + templates, user sign-off | ⛔ Blocked on B |
 | **T** Trigger | Deployment + triggers + maintenance log | ⛔ Blocked on B |
 
 ### Discovery answers
-- **North Star:** _pending_
+- **Context (Q1, 2026-09-24):** portfolio piece, with intent to pitch/sell to Bethel TC. Must be either integrated or *integration-ready* for a third party to plug in.
+- **North Star:** A working, demo-ready prototype of the new `/start` that takes a client from first click to a validated, routed `RoutedIntake` payload in **one flow (<3 min, 1 form)**, where swapping the mock backend for real systems requires **only `.env` + one adapter file per integration** — no changes to logic or UI.
 - **Integrations:** _pending_
 - **Source of Truth:** _pending_
 - **Delivery Payload:** _pending_
